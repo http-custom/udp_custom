@@ -956,21 +956,21 @@ menu_udp_custom() {
   else
     state="\e[1m\e[31m[OFF]"
   fi
-  echo -e " $(msg -verd "[1]") $(msg -verm2 '>') $(msg -azu "${a2:-Activate/Deactivate UDP-Custom}") $state"
+  echo -e " $(msg -verd "[1]") $(msg -verm2 '>') $(msg -azu "${a2:-INICIAR/DETENER UDP-CUSTOM}") $state"
   msg -bar0
   msg -bar3
   print_center -ama "${a12:-QUICK MENU}"
   msg -bar3
-  echo " $(msg -verd "[2]") $(msg -verm2 '>') $(msg -verd "${a6:-Create User}")"
-  echo " $(msg -verd "[3]") $(msg -verm2 '>') $(msg -verm2 "${a7:-Remove User}")"
-  echo " $(msg -verd "[4]") $(msg -verm2 '>') $(msg -ama "${a8:-Renew User}")"
-  echo " $(msg -verd "[5]") $(msg -verm2 '>') $(msg -blu "${a9:-Block/Unlock User}")"
-  echo " $(msg -verd "[6]") $(msg -verm2 '>') $(msg -verm3 "${a10:-User Details}")"
-  echo " $(msg -verd "[7]") $(msg -verm2 '>') $(msg -teal "${a11:-Limit Accounts}")"
+  echo " $(msg -verd "[2]") $(msg -verm2 '>') $(msg -verd "${a6:-CREAR USUARIO}")"
+  echo " $(msg -verd "[3]") $(msg -verm2 '>') $(msg -verm2 "${a7:-REMOVER USUARIO}")"
+  echo " $(msg -verd "[4]") $(msg -verm2 '>') $(msg -ama "${a8:-RENOVAR USUARIO}")"
+  echo " $(msg -verd "[5]") $(msg -verm2 '>') $(msg -blu "${a9:-BLOQUEAR O DESBLOQUEAR USUARIO}")"
+  echo " $(msg -verd "[6]") $(msg -verm2 '>') $(msg -verm3 "${a10:-DETALLES DE TODOS USUARIOS}")"
+  echo " $(msg -verd "[7]") $(msg -verm2 '>') $(msg -teal "${a11:-LIMITADOR DE CUENTAS}")"
   msg -bar3
   back
   # option=$(selection_fun $num)
-  read -p " ⇢  Enter your selection: " option
+  read -p " ⇢  INGRESE UNA OPCIÓN: " option
 
   case $option in
   1) reset_udp_custom ;;
@@ -1003,17 +1003,17 @@ menu_main() {
   # print options menu
   print_center -ama "${a12:-CHOOSE UDP CORE}"
   msg -bar3
-  echo " $(msg -verd "[1]") $(msg -verm2 '>') $(msg -verd "${a6:-UDP Custom}")"
+  echo " $(msg -verd "[1]") $(msg -verm2 '>') $(msg -verd "${a6:-UDP CUSTOM}")"
   # echo " $(msg -verd "[2]") $(msg -verm2 '>') $(msg -ama "${a8:-UDP Request}")"
   msg -bar3
-  echo " $(msg -verd "[3]") $(msg -verm2 '>') $(msg -teal "${a11:-Tweak UDP Speed $(msg -verm2 '[!Caution!]')}")"
-  echo " $(msg -verd "[4]") $(msg -verm2 '>') $(msg -teal "${a10:-VPS Info}")"
+  echo " $(msg -verd "[3]") $(msg -verm2 '>') $(msg -teal "${a11:-AJUSTAR UDP VELOCIDAD $(msg -verm2 '[!PRACAUCIÓN!]')}")"
+  echo " $(msg -verd "[4]") $(msg -verm2 '>') $(msg -teal "${a10:-VPS INFO}")"
   msg -bar3
-  echo " $(msg -verd "[10]") $(msg -verm2 '>') $(msg -verm2 "${a3:-Uninstall UDP Manager}")"
+  echo " $(msg -verd "[10]") $(msg -verm2 '>') $(msg -verm2 "${a3:-DESINSTALAR UDP MANAGER}")"
   exit2home
 
   # prompt user for option selection
-  read -p " ⇢  Enter your selection: " option
+  read -p " ⇢  INGRESE UNA OPCIÓN: " option
 
   # handle option selection
   case $option in
