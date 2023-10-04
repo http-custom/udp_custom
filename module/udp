@@ -29,15 +29,15 @@ limiter() {
     done
 
     # Prompt user to configure limiter
-    print_center -ama "CONFIGURE LIMITER"
+    print_center -ama "CONFIGURAR LIMITADOR"
     msg -bar
-    print_center -ama "Block users when they exceed the maximum number of connections"
+    print_center -ama "BLOQUEA USUARIOS CUANDO EXCEDEN EL NÚMERO MÁXIMO DE CONEXIONES"
     msg -bar
 
     # Set interval for running limiter
     unset option
     while [[ -z $option ]]; do
-      msg -nama "Run limiter every (in minutes): "
+      msg -nama "EJECUTAR LIMITADOR CADA: "
       read option
 
       if [[ ! $option =~ ^[0-9]+$ ]]; then
@@ -62,12 +62,12 @@ limiter() {
     msg -bar
 
     # Set interval for automatically unblocking users blocked by the limiter
-    print_center -ama "Users blocked by the limiter will be unlocked automatically (enter 0 for manual unlock)"
+    print_center -ama "LOS USUARIOS BLOQUEADOS POR EL LIMITAR SERAN DESBLOQUEADO AUTOMATICAMENTE (INGRESA 0 PARA DESBLOQUEO MANUAL)"
     msg -bar
 
     unset option
     while [[ -z $option ]]; do
-      msg -nama "Unblock users every (in minutes): "
+      msg -nama "DESBLOQUEAR USUARIOS CADA: "
       read option
 
       if [[ ! $option =~ ^[0-9]+$ ]]; then
@@ -86,7 +86,7 @@ limiter() {
     # Start limiter with new settings
     nohup ${udp_dir}/limiter.sh &>/dev/null &
     msg -bar
-    print_center -verd "Limiter started"
+    print_center -verd "LIMITADOR INICIADO"
     enter
   }
 
@@ -131,7 +131,7 @@ limiter() {
   msg -bar
   print_center -ama "${a11:-ACCOUNT LIMITER}"
   msg -bar
-  menu_func "${a64:-MULTI-LOGIN LIMITER}" "${a65:-EXPIRED LIMITER} $lim_e" "${a66:-LIMITER LOG}"
+  menu_func "${a64:-LIMITADOR MULTI-LOGIN}" "${a65:-LIMITADOR EXPIRADOS} $lim_e" "${a66:-LOG DEL LIMITADOR}"
   back
   msg -ne " ${a67:-option}: "
   read option
@@ -209,7 +209,7 @@ detail_user() {
     return
   else
     msg -bar
-    print_center -ama "${a63:-DETAILS OF USERS}"
+    print_center -ama "${a63:-DETALLES DE LOS USUARIOS}"
     msg -bar
   fi
   data_user
@@ -223,7 +223,7 @@ block_user() {
   clear
   active_users=('' $(show_users))
   msg -bar
-  print_center -ama "${a9:-BLOCK/UNBLOCK USERS}"
+  print_center -ama "${a9:-BLOQUEAR O DESBLOQUEAR USUARIO}"
   msg -bar
   data_user
   back
@@ -253,7 +253,7 @@ block_user() {
     return 1
   }
 
-  msg -nama "   ${a48:-Username}: $user_del >>>> "
+  msg -nama "   ${a48:-USUARIO}: $user_del >>>> "
 
   if [[ $(passwd --status $user_del | cut -d ' ' -f2) = "P" ]]; then
     pkill -u $user_del &>/dev/null
@@ -261,11 +261,11 @@ block_user() {
     kill -9 $droplim &>/dev/null
     usermod -L $user_del &>/dev/null
     sleep 2
-    msg -verm2 "${a60:-Blocked}"
+    msg -verm2 "${a60:-BLOQUEADO}"
   else
     usermod -U $user_del
     sleep 2
-    msg -verd "${a61:-Unblocked}"
+    msg -verd "${a61:-DESBLOQUEADO}"
   fi
   msg -bar
   sleep 3
@@ -287,12 +287,12 @@ renew_user() {
   clear
   active_users=('' $(show_users))
   msg -bar
-  print_center -ama "${a8:-RENEW USERS}"
+  print_center -ama "${a8:-RENOVAR USUARIOS}"
   msg -bar
   data_user
   back
 
-  print_center -ama "${a52:-Type a Username from the list}"
+  print_center -ama "${a52:-ESCRIBA UN USUARIO DE LA LISTA}"
   msg -bar
   unset selection
   while [[ -z ${selection} ]]; do
@@ -392,16 +392,16 @@ remove_user() {
   clear
   active_users=('' $(show_users))
   msg -bar
-  print_center -ama "${a7:-REMOVE USERS}"
+  print_center -ama "${a7:-REMOVER USUARIOS}"
   msg -bar
   data_user
   back
 
-  print_center -ama "${a52:-ESCRIBA O SELECCIONE UN USUARIO}"
+  print_center -ama "${a52:-ESCRIBA UN USUARIO}"
   msg -bar
   unset selection
   while [[ -z ${selection} ]]; do
-    msg -nazu "${a53:-Please type a username}: " && read selection
+    msg -nazu "${a53:-ESCRIBA UN NOMBRE DE USUARIO}: " && read selection
     tput cuu1 && tput dl1
   done
   [[ ${selection} = "0" ]] && return
@@ -421,10 +421,10 @@ remove_user() {
     return 1
   }
 
-  print_center -ama "${a55:-Selected User}: $user_del"
+  print_center -ama "${a55:-USUARIO SELECCIONADO}: $user_del"
   rm_user "$user_del"
   if [[ $msj = 0 ]]; then
-    print_center -verd "[${a56:-Removed}]"
+    print_center -verd "[${a56:-REMOVIDO}]"
   else
     print_center -verm "[${a57:-Not Removed}]"
   fi
