@@ -452,7 +452,7 @@ new_user() {
   clear
   active_users=('' $(show_users))
   msg -bar
-  print_center -ama "${a6:-CREATE USER ACCOUNT}"
+  print_center -ama "${a6:-CREAR USUARIO}"
   msg -bar
   data_user
   back
@@ -956,7 +956,7 @@ menu_udp_custom() {
   else
     state="\e[1m\e[31m[OFF]"
   fi
-  echo -e " $(msg -verd "[1]") $(msg -verm2 '>') $(msg -azu "${a2:-INICIAR/DETENER UDP-CUSTOM}") $state"
+  echo -e " $(msg -verd "[1]") $(msg -verm2 '>') $(msg -azu "${a2:-INICIAR/DETENER UDP CUSTOM}") $state"
   msg -bar0
   msg -bar3
   print_center -ama "${a12:-QUICK MENU}"
