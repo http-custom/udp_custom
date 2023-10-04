@@ -53,13 +53,13 @@ if [ "$(lsb_release -rs)" = "8*|9*|10*|11*|16.04*|18.04*" ]; then
 else
   clear
   echo ""
-  print_center -ama "A Compatible OS/Environment Found"
-  print_center -ama " ⇢ Installation begins...! <"
+  print_center -ama "SU SISTEMA OPERATIVO ES COMPATIBLE CON UDP CUSTOM"
+  print_center -ama " ⇢ INICIANDO INSTALACIÓN...! <"
   sleep 3
 
     # [change timezone to UTC +0]
   echo ""
-  echo " ⇢ Binario Core Oficial ePro Dev Team"
+  echo " ⇢ BINARIO OFICIAL EPRO DEV TEAM"
   echo " ⇢ UDP Custom"
   sleep 3
 
@@ -126,11 +126,11 @@ else
   clear
   echo ""
   echo ""
-  print_center -ama "${a103:-setting up, please wait...}"
+  print_center -ama "${a103:-INSTALANDO, POR FAVOR ESPERE...}"
   sleep 6
-  title "${a102:-Installation Successful}"
-  print_center -ama "${a103:-  To show menu type: \nudp\n}"
-  echo -ne "\n\033[1;31mENTER \033[1;33mpara entrar al \033[1;32mMENU!\033[0m"; read
+  title "${a102:-¡INSTALACIÓN COMPLETA!}"
+  print_center -ama "${a103:-  PARA MOSTRAR EL MENÚ USE COMANDO: \nudp\n}"
+  echo -ne "\n\033[1;31mENTER \033[1;33mPARA ENTRAR AL \033[1;32mMENU!\033[0m"; read
    udp
   
 fi
