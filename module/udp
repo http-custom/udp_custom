@@ -55,7 +55,7 @@ limiter() {
       fi
 
       del 1
-      echo -e "$(msg -nama "Run limiter every: ") $(msg -verd "$option minutes")"
+      echo -e "$(msg -nama "EJECUTAR LIMITADOR CADA: ") $(msg -verd "$option minutes")"
       echo "$option" >${udp_dir}/limit
     done
 
@@ -79,7 +79,7 @@ limiter() {
       fi
 
       tput cuu1 && tput dl1
-      [[ $option -le 0 ]] && echo -e "$(msg -nama "Unblock: ") $(msg -verd "manual")" || echo -e "$(msg -nama "Unblock users every: ") $(msg -verd "$option minutes")"
+      [[ $option -le 0 ]] && echo -e "$(msg -nama "Unblock: ") $(msg -verd "manual")" || echo -e "$(msg -nama "DESBLOQUEAR USUARIOS CADA: ") $(msg -verd "$option minutes")"
       echo "$option" >${udp_dir}/unlimit
     done
 
@@ -96,10 +96,10 @@ limiter() {
     l_cron=$(cat /var/spool/cron/crontabs/root | grep -w 'limiter.sh' | grep -w 'ssh')
     if [[ -z "$l_cron" ]]; then
       print_center -ama '0 1 * * * /etc/limiter.sh --ssh' >>/var/spool/cron/crontabs/root
-      print_center -verd "${a82:-scheduled expiration limiter\nwill be executed every day at 1 am\naccording to the time scheduled on the server}"
+      print_center -verd "${a82:-LIMITADOR DE EXPIRADOS PROGRAMADO\nSE EJECUTARA TODOS LOS DIAS A LA 1HS AM\nSEGÚN LA HORA PROGRAMADA EN EL SERVIDOR}"
     else
       sed -i '/limiter.sh --ssh/d' /var/spool/cron/crontabs/root
-      print_center -verm2 "${a83:-expired limiter stopped}"
+      print_center -verm2 "${a83:-LIMITADOR DE EXPIRADOS DETENIDO}"
     fi
     enter
     return
@@ -148,7 +148,7 @@ limiter() {
 data_user() {
   cat_users=$(cat "/etc/passwd" | grep 'home' | grep 'false' | grep -v 'syslog' | grep -v '::/' | grep -v 'hwid\|token')
   [[ -z "$(echo "${cat_users}" | head -1)" ]] && print_center -verm2 "${a96:-NO REGISTERED SSH USERS}" && return 1
-  dat_us=$(printf '%-13s%-14s%-10s%-4s%-6s%s' "${a48:-USUARIO}" "${a49:-CONTRASEÑA}" "${a97:-FECHA}" "${a98:-DIA}" 'LIMITE' 'ESTADO')
+  dat_us=$(printf '%-13s%-14s%-10s%-4s%-6s%s' "${a48:-USUARIO}" "${a49:-CONTRASEÑA}" "${a97:-FECHA}" "${a98:-DIA}" 'LIMITE ' 'ESTADO')
   msg -azu "  $dat_us"
   msg -bar
 
@@ -228,11 +228,11 @@ block_user() {
   data_user
   back
 
-  print_center -ama "${a52:-Type a Username from the list}"
+  print_center -ama "${a52:-ESCRIBA UN USUARIO DE LA LISTA}"
   msg -bar
   unset selection
   while [[ ${selection} = "" ]]; do
-    msg -nazu "${a53:-Please type a username}: " && read selection
+    msg -nazu "${a53:-ESCRIBA UN NOMBRE DE USUARIO}: " && read selection
     del 1
   done
 
