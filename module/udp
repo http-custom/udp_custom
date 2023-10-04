@@ -108,11 +108,11 @@ limiter() {
   log() {
     clear
     msg -bar
-    print_center -ama "${a84:-LIMITER REGISTRY}"
+    print_center -ama "${a84:-REGISTRO DEL LIMITADOR}"
     msg -bar
     [[ ! -e /etc/limit.log ]] && touch /etc/limit.log
     if [[ -z $(cat /etc/limit.log) ]]; then
-      print_center -ama "${a85:-no account limiter record}"
+      print_center -ama "${a85:-NO HAY REGISTRO DE LIMITADOR}"
       msg -bar
       sleep 2
       return
@@ -129,7 +129,7 @@ limiter() {
 
   clear
   msg -bar
-  print_center -ama "${a11:-ACCOUNT LIMITER}"
+  print_center -ama "${a11:-LIMITADOR DE CUENTAS}"
   msg -bar
   menu_func "${a64:-LIMITADOR MULTI-LOGIN}" "${a65:-LIMITADOR EXPIRADOS} $lim_e" "${a66:-LOG DEL LIMITADOR}"
   back
@@ -522,7 +522,7 @@ new_user() {
   if [[ $msj = 0 ]]; then
     print_center -verd "${a45:-USUARIO CREADO CON EXITO}"
   else
-    print_center -verm2 "${a46:-Error, user not created}"
+    print_center -verm2 "${a46:-ERROR, USUARIO NO CREADO}"
     enter
     return 1
   fi
@@ -633,12 +633,12 @@ reset_udp_custom() {
   if [[ $(systemctl is-active udp-custom) = 'active' ]]; then
     systemctl stop udp-custom &>/dev/null
     systemctl disable udp-custom &>/dev/null
-    print_center -ama "${a35:-UDP-Custom reset done!}"
+    print_center -ama "${a35:-¡UDP CUSTOM DETENIDO!}"
   else
     systemctl start udp-custom &>/dev/null
     if [[ $(systemctl is-active udp-custom) = 'active' ]]; then
       systemctl enable udp-custom &>/dev/null
-      print_center -verd "${a36:-UDP-Custom started!}"
+      print_center -verd "${a36:-¡UDP CUSTOM INICIADO!}"
     else
       print_center -verm2 "${a37:-failed to start udp-custom.service!}"
     fi
@@ -959,7 +959,7 @@ menu_udp_custom() {
   echo -e " $(msg -verd "[1]") $(msg -verm2 '>') $(msg -azu "${a2:-INICIAR/DETENER UDP CUSTOM}") $state"
   msg -bar0
   msg -bar3
-  print_center -ama "${a12:-QUICK MENU}"
+  print_center -ama "${a12:-MINI MENÚ}"
   msg -bar3
   echo " $(msg -verd "[2]") $(msg -verm2 '>') $(msg -verd "${a6:-CREAR USUARIO}")"
   echo " $(msg -verd "[3]") $(msg -verm2 '>') $(msg -verm2 "${a7:-REMOVER USUARIO}")"
