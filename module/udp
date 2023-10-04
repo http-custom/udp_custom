@@ -55,7 +55,7 @@ limiter() {
       fi
 
       del 1
-      echo -e "$(msg -nama "EJECUTAR LIMITADOR CADA: ") $(msg -verd "$option minutes")"
+      echo -e "$(msg -nama "EJECUTAR LIMITADOR CADA: ") $(msg -verd "$option MINUTOS")"
       echo "$option" >${udp_dir}/limit
     done
 
@@ -1001,7 +1001,7 @@ menu_main() {
   msg -bar0
 
   # print options menu
-  print_center -ama "${a12:-CHOOSE UDP CORE}"
+  print_center -ama "${a12:-ELIJA UDP CUSTOM}"
   msg -bar3
   echo " $(msg -verd "[1]") $(msg -verm2 '>') $(msg -verd "${a6:-UDP CUSTOM}")"
   # echo " $(msg -verd "[2]") $(msg -verm2 '>') $(msg -ama "${a8:-UDP Request}")"
