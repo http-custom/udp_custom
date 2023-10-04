@@ -60,7 +60,7 @@ else
     # [change timezone to UTC +0]
   echo ""
   echo " ⇢ BINARIO OFICIAL EPRO DEV TEAM"
-  echo " ⇢ UDP Custom"
+  echo " ⇢ UDP CUSTOM"
   sleep 3
 
   # [+clean up+]
