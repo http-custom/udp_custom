@@ -426,7 +426,7 @@ remove_user() {
   if [[ $msj = 0 ]]; then
     print_center -verd "[${a56:-REMOVIDO}]"
   else
-    print_center -verm "[${a57:-Not Removed}]"
+    print_center -verm "[${a57:-NO REMOVIDO}]"
   fi
   enter
 }
@@ -579,8 +579,8 @@ EOF
 }
 
 uninstall_udp_manager() {
-  title "${a32:-Uninstall UDP-Manager & Binaries}"
-  read -rp " $(msg -ama "${a33:-Do you wish to continue? [Y/n]}:") " -e -i Y UNINS
+  title "${a32:-DESINTALADOR UDP CUSTOM}"
+  read -rp " $(msg -ama "${a33:-DESINTALADOR UDP CUSTOM? [S/N]}:") " -e -i Y UNINS
   [[ $UNINS != @(Y|y|S|s) ]] && return
   systemctl stop udp-custom &>/dev/null
   systemctl disable udp-custom &>/dev/null
@@ -606,7 +606,7 @@ uninstall_udp_manager() {
   rm -rf /etc/systemd/system/udpgw.service
   systemctl stop udpgw &>/dev/null
   del 1
-  print_center -ama "${a34:-Uninstallation completed!}"
+  print_center -ama "${a34:-DESINSTALACIÓN COMPLETA!}"
   rm -rf /usr/bin/udp
   enter
   exit
