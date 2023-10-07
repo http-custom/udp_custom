@@ -579,8 +579,8 @@ EOF
 }
 
 uninstall_udp_manager() {
-  title "${a32:-DESINTALADOR UDP CUSTOM}"
-  read -rp " $(msg -ama "${a33:-DESINTALADOR UDP CUSTOM? [S/N]}:") " -e -i Y UNINS
+  title "${a32:-DESINSTALADOR UDP CUSTOM}"
+  read -rp " $(msg -ama "${a33:-¿DESINSTALAR UDP CUSTOM? [S/N]}:") " -e -i S UNINS
   [[ $UNINS != @(Y|y|S|s) ]] && return
   systemctl stop udp-custom &>/dev/null
   systemctl disable udp-custom &>/dev/null
@@ -606,7 +606,7 @@ uninstall_udp_manager() {
   rm -rf /etc/systemd/system/udpgw.service
   systemctl stop udpgw &>/dev/null
   del 1
-  print_center -ama "${a34:-DESINSTALACIÓN COMPLETA!}"
+  print_center -ama "${a34:-¡DESINSTALACIÓN COMPLETA!}"
   rm -rf /usr/bin/udp
   enter
   exit
