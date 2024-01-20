@@ -169,9 +169,9 @@ data_user() {
 
     unset stat
     if [[ $(passwd --status $u | cut -d ' ' -f2) = "P" ]]; then
-      stat="$(msg -verd "ULK")"
+      stat="$(msg -verd "DESBLOQUEADO")"
     else
-      stat="$(msg -verm2 "BLK")"
+      stat="$(msg -verm2 "BLOQUEADO")"
     fi
 
     Limit=$(echo "$line" | awk -F ':' '{print $5}' | cut -d ',' -f1)
